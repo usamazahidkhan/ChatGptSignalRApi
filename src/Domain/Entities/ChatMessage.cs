@@ -2,6 +2,7 @@
 
 public class ChatMessage : BaseAuditableEntity
 {
+    public string user { get; set; }
     public string message { get; set; }
-    public string messageBy { get; set; }
+    public string response { get; set; }
 }

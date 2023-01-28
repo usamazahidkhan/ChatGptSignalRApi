@@ -19,5 +19,6 @@ namespace CleanArchitecture.WebUI
 
             await Clients.Caller.SendAsync("ReceiveMessage", response);
         }
+
     }
 }

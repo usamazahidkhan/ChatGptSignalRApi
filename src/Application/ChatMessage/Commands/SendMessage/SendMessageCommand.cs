@@ -26,7 +26,18 @@ namespace CleanArchitecture.Application
 
         public async Task<string> Handle(SendMessageCommand request, CancellationToken cancellationToken)
         {
-            return await GetOpenAIResponse(request);
+            var message = new ChatMessage()
+            {
+                message = request.message,
+                user = request.user,
+                response = await GetOpenAIResponse(request)
+            };
+
+            _context.ChatMessages.Add(message);
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return message.response;
         }
 
         private async Task<string> GetOpenAIResponse(SendMessageCommand request)

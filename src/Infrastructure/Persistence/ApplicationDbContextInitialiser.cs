@@ -23,6 +23,7 @@ public class ApplicationDbContextInitialiser
             if (_context.Database.IsSqlServer())
             {
                 await _context.Database.MigrateAsync();
+                await _context.Database.EnsureCreatedAsync();
             }
         }
         catch (Exception ex)

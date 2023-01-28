@@ -34,7 +34,7 @@ public static class ConfigureServices
 
         services.AddOpenAIService(settings =>
         {
-            settings.ApiKey = "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";
+            settings.ApiKey = "";
         });
 
         return services;
